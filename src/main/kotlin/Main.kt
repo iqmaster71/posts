@@ -1,5 +1,7 @@
 package ru.netology
 
+class PostNotFoundException(message: String) : RuntimeException(message)
+
 fun main() {
     val wallService = WallService
     var postOne = Post(
@@ -19,6 +21,7 @@ fun main() {
         views = null,
         postType = "тип",
         postSource = null,
+        attachment = null,
         geo = null,
         signerId = 0,
         copyHistory = null,
@@ -49,6 +52,7 @@ fun main() {
         views = null,
         postType = "тип",
         postSource = null,
+        attachment = null,
         geo = null,
         signerId = 0,
         copyHistory = null,
@@ -79,6 +83,7 @@ fun main() {
         views = null,
         postType = "тип",
         postSource = null,
+        attachment = null,
         geo = null,
         signerId = 0,
         copyHistory = null,
@@ -117,6 +122,7 @@ fun main() {
         views = null,
         postType = "тип",
         postSource = null,
+        attachment = null,
         geo = null,
         signerId = 0,
         copyHistory = null,
@@ -134,4 +140,46 @@ fun main() {
     } else {
         println("Такого поста нет")
     }
+
+    val commentOne = Comment(
+        id = 11,
+        fromId = 0,
+        date = 1,
+        text = "Комментарий к посту №1",
+        donut = null,
+        replyToUser = 0,
+        replyToComment = 0,
+        attachments = null,
+        parentsStack = arrayOf(),
+        thread = null
+    )
+    val commentTwo = Comment(
+        id = 10,
+        fromId = 0,
+        date = 1,
+        text = "Комментарий к посту №2",
+        donut = null,
+        replyToUser = 0,
+        replyToComment = 0,
+        attachments = null,
+        parentsStack = arrayOf(),
+        thread = null
+    )
+    val commentThree = Comment(
+        id = 87,
+        fromId = 0,
+        date = 1,
+        text = "Комментарий к посту №3",
+        donut = null,
+        replyToUser = 0,
+        replyToComment = 0,
+        attachments = null,
+        parentsStack = arrayOf(),
+        thread = null
+    )
+
+    wallService.createComment(commentOne)
+    wallService.createComment(commentTwo)
+    wallService.createComment(commentThree)
+
 }
